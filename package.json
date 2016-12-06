@@ -2,9 +2,13 @@
   "name": "todolist",
   "version": "1.0.0",
   "description": "",
-  "main": "angular-route.min.js",
+  "main": "index.js",
   "dependencies": {
-    "express": "^4.14.0"
+    "ejs": "^2.5.4",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.7.1"
   },
   "devDependencies": {},
   "scripts": {

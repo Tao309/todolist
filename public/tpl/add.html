@@ -1,0 +1,18 @@
+<div id='get_back'><a href='#/' class='button small darken'>Назад</a></div>
+<div class='header'>Добавить запись</div>
+<form class='add_form' ng-submit='send()'>
+	<div class='field'>
+		<label>Наименование</label>
+		<input type='text' ng-model='title' maxlength='60'/>
+	</div>
+	<div class='field'>
+		<label>Дата окончания</label>
+		<span' ng-model='date' ng-bing='choosedate'></span>
+		<ng-datepicker ng-model="choosedate" locale="ru" format="DD.MM.YYYY"  view-format="DD.MM.YYYY"></ng-datepicker>
+	</div>
+	
+	
+	<div class='action'>
+		<button type='submit' class='button large green'>Добавить</button>
+	</div>
+</div>
