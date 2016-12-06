@@ -37,10 +37,10 @@ app.controller('add', function($scope,$http) {
 	$scope.send = function() {
 		if(typeof $scope.title == 'undefined' || $scope.title=='' || typeof $scope.choosedate == 'undefined' || $scope.choosedate=='') {return false;}
 		
-		$http.post('/additem/', {
-			'title': $scope.title,
-			'date': $scope.choosedate,
-			'status': '0',
+		$http.post('/additem', {
+			title: $scope.title,
+			date: $scope.choosedate,
+			status: '0',
 		})
 		.success(function(response) {
 			$scope.title = "";
@@ -53,15 +53,7 @@ app.controller('add', function($scope,$http) {
 });
 
 app.controller('ToDoListCtrl', function($scope,$http) {
-	$scope.list = [];
-	$http.get('/list/').success(function(response) {
-		$scope.list = response;
-	})
-	.error(function(response) {
-		console.log('Read error!');
-	});
-	
-	/*
+	//$scope.list = [];
 	$scope.list = [
 		{
 			title:'первое',date:'',status:'1',
@@ -79,7 +71,12 @@ app.controller('ToDoListCtrl', function($scope,$http) {
 			title:'пято',date:'',status:'0',
 		},
 	];
-	*/
+	$http.get('/list/').success(function(response) {
+		//$scope.list = response;
+	})
+	.error(function(response) {
+		console.log('Read error!');
+	});
 	
 	$scope.headerTitle = "Список задач";
   

@@ -21,6 +21,8 @@ app.get('/',function(req,res) {
 
 app.get('/list/',function(req,res) {
 	var oneItem = new mongoose.Schema({
+		//_id: Schema.ObjectId,
+		_id: String,
 		title: String,
 		status: Boolean,
 		date: String
@@ -33,17 +35,49 @@ app.get('/list/',function(req,res) {
 	});
 });
 
-app.post('/additem/',function(req, res) {
+app.post('/additem',function(req, res) {
 	var oneItem = new mongoose.Schema({
+		//_id: Schema.ObjectId,
+		//_id: String,
 		title: String,
 		status: Boolean,
 		date: String
 	});
-	var item = db.model("Item",oneItem);
+	var item = mongoose.model('list', oneItem);
 	
-	db.list.insert(req.body,function(err,data) {
+	var dataSend = {
+		title: req.body.title,
+		status: req.body.status,
+		date: req.body.date
+	};
+	
+	
+	new item(dataSend).save(function (err, fluffy) {
+		if (err) return console.error(err);
+		res.send('Added!');
+	});
+
+	
+	
+	
+	/*
+	
+	var oneItem = new mongoose.Schema({
+		_id: String,
+		title: String,
+		status: Boolean,
+		date: String
+	});
+	var item = db.model("list",oneItem);
+	new item(dataSend).save(function(err,data) {
+		if(err) {res.json(err);} else {
+			res.send('Added!');
+		}
+	});
+	db.item.insert(req.body,function(err,data) {
 		res.json(data);
 	});
+	*/
 });
 
 app.listen(3000, function() {

@@ -81,6 +81,7 @@ table,td,th,img {border:none;padding:0;margin:0;}
 .header {font-size:1.3rem;font-weight:bold;text-align:center;padding:0.6rem;color:#2980b9;}
 
 .list {}
+.list.empty {padding:1rem 0.6rem;text-align:center;}
 .list .one {border:1px solid #bdc3c7;margin:0.4rem 0;padding:0.8rem 0.6rem;background-color:#fff;font-size:1.2rem;
 		box-sizing: border-box;
 -webkit-box-sizing: border-box;

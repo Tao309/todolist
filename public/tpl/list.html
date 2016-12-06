@@ -1,3 +1,4 @@
 <div id='add_new'><a href='#/add/' class='button small green'>Добавить</a></div>
 <div class='header'>{{headerTitle}}</div>
-<div class='list'><div class='one' ng-repeat='r in list'>{{r.title}}</div></div>
+<div class='list' ng-if='list.length>0'><div class='one' ng-repeat='r in list'>{{r.title}}</div></div>
+<div class='list empty' ng-if='list.length<=0'>Список пуст</div>
